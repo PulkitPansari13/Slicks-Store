@@ -1,4 +1,4 @@
-
+import django_heroku
 from pathlib import Path
 from decouple import config
 
@@ -17,7 +17,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', '127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = ['slicks.herokuapp.com', '127.0.0.1', '0.0.0.0']
 
 
 # Application definition
@@ -147,3 +147,4 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/files/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+django_heroku.settings(locals())
