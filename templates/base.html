@@ -99,7 +99,11 @@
               <a href="{% url 'products:cart' %}">
                 <i class="bi bi-handbag"></i>
               </a>
-              <div id="bag-count"> {% item_count request %} </div>
+              <div id="bag-count"> 
+              {% comment %}  
+                {% item_count request %} 
+              {% endcomment %}
+              </div>
             </div>
           </div>
         </div>
