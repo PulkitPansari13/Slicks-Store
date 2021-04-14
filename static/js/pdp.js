@@ -88,17 +88,17 @@ function addtoBag(uqid, selected_size, quant,btn){
     xhr.send(data);
 }
 
-if(wlist_btn){
-wlist_btn.addEventListener('click', function(){
-    if(is_loggedin){
-    let uqid = this.getAttribute('data-uqid');
-    wlistProdtoggle(uqid);
-    }
-    else{
-    location.href = "{% url 'accounts:login' %}?next={{request.path}} ";
-    }
-})
-}
+// if(wlist_btn){
+// wlist_btn.addEventListener('click', function(){
+//     if(is_loggedin){
+//     let uqid = this.getAttribute('data-uqid');
+//     wlistProdtoggle(uqid);
+//     }
+//     else{
+//     location.href = "{% url 'accounts:login' %}?next={{request.path}} ";
+//     }
+// })
+// }
       
 if(bag_btn){
 bag_btn.addEventListener('click', function(){

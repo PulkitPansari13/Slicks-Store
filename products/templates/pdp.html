@@ -192,4 +192,17 @@
     
     </script> -->
     <script src="{% static 'js/pdp.js' %}"></script>
+    <script>
+      if(wlist_btn){
+        wlist_btn.addEventListener('click', function(){
+            if(is_loggedin){
+            let uqid = this.getAttribute('data-uqid');
+            wlistProdtoggle(uqid);
+            }
+            else{
+            location.href = "{% url 'accounts:login' %}?next={{request.path}} ";
+            }
+        })
+      }
+    </script>
  {% endblock %}
