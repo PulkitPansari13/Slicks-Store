@@ -16,7 +16,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['slicks.herokuapp.com', '127.0.0.1', '0.0.0.0']
 
