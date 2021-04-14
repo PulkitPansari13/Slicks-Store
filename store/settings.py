@@ -1,3 +1,4 @@
+import dj_database_url
 import django_heroku
 from pathlib import Path
 from decouple import config
@@ -29,6 +30,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     'cuser',
     'accounts',
     'products',
@@ -50,6 +53,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'store.urls'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': config('CLOUDINARY_API_KEY'),
+    'API_SECRET': config('CLOUDINARY_API_SECRET')
+}
 
 
 RAZOR_KEY_ID = config('RAZOR_KEY_ID')
@@ -87,12 +96,26 @@ WSGI_APPLICATION = 'store.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DATABASE_NAME'),
+        'HOST': config('DATABASE_HOST'),
+        'PORT': config('DATABASE_PORT'),
+        'USER': config('DATABASE_USER'),
+        'PASSWORD': config('DATABASE_PASSWORD'),
     }
 }
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -147,4 +170,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/files/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
 django_heroku.settings(locals())
