@@ -11,7 +11,7 @@
 4. Secure payments 💳 integration with razorpay.
 
 ## Live demo
-Checkout the project deployed at [slicks.herokuapp.com](https://slicks.herokuapp.com/).
+Checkout the project deployed at [slicks.herokuapp.com](https://slicks.herokuapp.com/).<br>
 PS: Since heroku uses dynos to serve website, it might take time for initial load of the website as dynos wake from sleep if there is no visit to the website in last half hour.
 
 ## Running locally
