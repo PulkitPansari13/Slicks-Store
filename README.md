@@ -12,6 +12,7 @@
 
 ## Live demo
 Checkout the project deployed at [slicks.herokuapp.com](https://slicks.herokuapp.com/).<br>
+To make dummy payment select 'CARD' as payment method and enter '4111111111111111' as card number, any future date as expiry and any random cvv.<br>
 PS: Since heroku uses dynos to serve website, it might take time for initial load of the website as dynos wake from sleep if there is no visit to the website in last half hour.
 
 ## Running locally
